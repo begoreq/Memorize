@@ -2,22 +2,22 @@
 //  ContentView.swift
 //  Memorize
 //
-//  Created by Angel on 30/7/25.
+//  Created by Bego on 30/7/25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    let emoji: Array<String> = ["👻", "🎃", "🕷️", "😈"]
+    let emojis: Array<String> = ["👻", "🎃", "🕷️", "😈"]
     var body: some View {
         HStack {
-            CardView(content: "👻", isFaceUp: false)
-            CardView(content: "🎃")
-            CardView(content: "🕷️", isFaceUp: true)
-            CardView(content: "😈", isFaceUp: true)
+            ForEach(emojis.indices, id: \.self) { index in
+                CardView(content: emojis[index])
+            }
+                
         }
-        .padding()
         .foregroundColor(.orange)
+        .padding()
     }
 }
 
